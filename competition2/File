@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+
+class Node{
+private:
+int *_int_array;
+
+Node *_pointer;
+public:
+int count;
+void setInt_array(int *int_array){
+_int_array=int_array;
+}
+int* getInt_array(){
+return _int_array;
+}
+
+void print(){
+for(int i=0;i<count;i++){
+cout<<*(_int_array+i)<<endl;
+}
+}
+};
+int main(int argc, const char * argv[]) {
+const int SPACE=' ';
+const int ENTER='\n';
+char input[1000];
+int int_array[100];
+string series;
+int count=0;
+
+cin.getline(input, 1000);
+
+for(int i=0;i<1000;i++){
+if(input[i]!=SPACE ){
+series=series+input[i];
+}
+else if(input[i]==SPACE){
+int_array[count]=atoi(series.c_str());
+series="";
+count++;
+}
+else if(input[i]==ENTER){
+break;
+}
+}
+
+for(int i=0;i<count;i++){
+cout<<int_array[i]<<endl;
+}
+
+
+Node *head=new Node();
+head->setInt_array(int_array);
+head->count=count;
+head->print();
+return 0;
+}
