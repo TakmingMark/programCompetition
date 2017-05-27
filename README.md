@@ -1,1 +1,3 @@
 # programCompetiion
+
+not clean code
